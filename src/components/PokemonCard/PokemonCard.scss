@@ -16,4 +16,21 @@
   &:hover {
     border: 2px solid #e0e0e0;
   }
+
+  &__type {
+    border-radius: 5px;
+    padding: 3px 7px;
+    color: black;
+    margin: 5px;
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  &__types {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
 }
