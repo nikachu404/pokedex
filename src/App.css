@@ -1,3 +1,19 @@
 .App {
   background-color: #f6f8fc;
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+}
+
+.load-more__button {
+  padding: 5px;
+  height: 40px;
+  margin-top: 40px;
+  background-color: #FF5350;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: #ff535088 5px 5px 15px;
+  color: white;
+  font-size: 18px;
 }

@@ -10,10 +10,13 @@ interface Props {
 
 export const PokemonList: React.FC<Props> = ({ pokemons }) => {
   return (
-    <div className="pokemons-list">
-      {pokemons && pokemons.map(pokemon => (
-        <PokemonCard pokemon={pokemon} key={pokemon.id} />
-      ))}
+    <div>
+      <div className="pokemons-list">
+        {pokemons && pokemons.map((pokemon, index) => (
+          <PokemonCard pokemon={pokemon} key={index} />
+        ))}
+      </div>
     </div>
+
   );
 };
