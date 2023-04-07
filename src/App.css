@@ -2,12 +2,13 @@
   background-color: #f6f8fc;
   display: flex;
   flex-direction: row;
-  padding: 30px;
+  padding: 5vh 14vw;
 }
 
 .load-more__button {
   padding: 5px;
   height: 40px;
+  width: 120px;
   margin-top: 40px;
   background-color: #FF5350;
   border: none;
@@ -16,4 +17,12 @@
   box-shadow: #ff535088 5px 5px 15px;
   color: white;
   font-size: 18px;
+}
+
+.list-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-right: 350px
 }

@@ -5,6 +5,7 @@ import { PokemonList } from './components/PokemonList/PokemonList';
 import axios from 'axios';
 import { Pokemon } from './types/Pokemon';
 import { PokemonListResponseData } from './types/PokemonListResponse';
+import { PokemonInfo } from './components/PokemonInfo/PokemonInfo';
 
 export const App: React.FC = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -53,7 +54,7 @@ export const App: React.FC = () => {
 
   return (
     <div className="App">
-      <div>
+      <div className="list-wrapper">
         <PokemonList pokemons={pokemons} />
         {hasMore && (
           <button
@@ -61,10 +62,11 @@ export const App: React.FC = () => {
             onClick={loadMore}
             disabled={isLoading}
           >
-            {isLoading ? 'Loading...' : 'Load More'}
+            Load More
           </button>
         )}
       </div>
+      <PokemonInfo/>
     </div>
   );
 };
