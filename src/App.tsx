@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import { PokemonList } from './components/PokemonList/PokemonList';
+import axios from 'axios';
 
-function App() {
+export const App: React.FC = () => {
+  const [pokemons, setPokemons] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/?limit=12');
+
+  const getPokemonList = async () => {
+    setIsLoading(true);
+    const res = await axios.get(url);
+    setUrl(res.data.next);
+    getPokemon(res.data.results);
+    setIsLoading(false);
+  };
+
+  const getPokemon = async (res: any) => {
+    res.map(async (item: any) => {
+      const result = await axios.get(item.url);
+      setPokemons(state => [...state, result.data]);
+      console.log(result.data);
+    });
+  };
+
+  useEffect(() => {
+    getPokemonList();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {isLoading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <PokemonList pokemons={pokemons} />
+      )}
     </div>
   );
-}
-
-export default App;
+};
