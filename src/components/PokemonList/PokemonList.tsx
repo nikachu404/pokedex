@@ -2,9 +2,10 @@
 import React from 'react';
 import './PokemonList.scss';
 import { PokemonCard } from '../PokemonCard/PokemonCard';
+import { Pokemon } from '../../types/Pokemon';
 
 interface Props {
-  pokemons: any[];
+  pokemons: Pokemon[];
 }
 
 export const PokemonList: React.FC<Props> = ({ pokemons }) => {

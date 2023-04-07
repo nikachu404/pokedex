@@ -4,7 +4,6 @@
   align-items: center;
   min-width: 20%;
   flex: 1;
-  gap: 5px;
 
   padding: 15px;
   border-radius: 20px;
@@ -15,6 +14,19 @@
 
   &:hover {
     border: 2px solid #e0e0e0;
+  }
+
+  @media (max-width: 380px) {
+    flex: unset;
+    width: 100%;
+  }
+
+  @media (max-width: 760px){
+    min-width: 40%;
+  }
+
+  &__name {
+    font-weight: 700;
   }
 
   &__type {

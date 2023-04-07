@@ -1,8 +1,9 @@
 import React from 'react';
 import './PokemonCard.scss';
+import { Pokemon, Type } from '../../types/Pokemon';
 
 interface Props {
-  pokemon: any;
+  pokemon: Pokemon;
 }
 
 const typeColors: Record<string, string> = {
@@ -28,25 +29,28 @@ const typeColors: Record<string, string> = {
 };
 
 export const PokemonCard: React.FC<Props> = ({ pokemon }) => {
-  const typeElements = pokemon.types.map((poke: any) => (
+  const typeElements = pokemon.types.map((poke: Type) => (
     <div
       key={poke.type.name}
       className="pokemon-card__type"
       style={{ backgroundColor: typeColors[poke.type.name] }}
     >
-      {poke.type.name}
+      {poke.type.name.charAt(0).toUpperCase() + poke.type.name.slice(1)}
     </div>
   ));
+
 
   return (
     <div className="pokemon-card mb-2">
       <img
         src={pokemon.sprites.front_default}
-        alt=""
+        alt={pokemon.name}
         className="pokemon-card__photo"
       />
-      <div className="pokemon-card__name">{pokemon.name}</div>
-      <div  className="pokemon-card__types">
+      <h3 className="pokemon-card__name">
+        {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+      </h3>
+      <div className="pokemon-card__types">
         {typeElements}
       </div>
     </div>
