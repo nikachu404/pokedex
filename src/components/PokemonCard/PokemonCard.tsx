@@ -4,31 +4,31 @@ import { Pokemon, Type } from '../../types/Pokemon';
 
 interface Props {
   pokemon: Pokemon;
+  setPokeInfo: (pokemon: Pokemon) => void;
 }
 
 const typeColors: Record<string, string> = {
-  'normal': '#BCBCAC',
-  'fighting': '#BC5442',
-  'flying': '#669AFF',
-  'poison': '#AB549A',
-  'ground': '#DEBC54',
-  'rock': '#BCAC66',
-  'bug': '#ABBC1C',
-  'ghost': '#6666BC',
-  'steel': '#ABACBC',
-  'fire': '#FF421C',
-  'water': '#2F9AFF',
-  'grass': '#78CD54',
-  'electric': '#FFCD30',
-  'psychic': '#FF549A',
-  'ice': '#78DEFF',
-  'dragon': '#7866EF',
-  'dark': '#785442',
-  'fairy': '#FFACFF',
-  'shadow': '#0E2E4C'
+  normal: '#A8A77A',
+  fire: '#EE8130',
+  water: '#6390F0',
+  electric: '#F7D02C',
+  grass: '#7AC74C',
+  ice: '#96D9D6',
+  fighting: '#C22E28',
+  poison: '#A33EA1',
+  ground: '#E2BF65',
+  flying: '#A98FF3',
+  psychic: '#F95587',
+  bug: '#A6B91A',
+  rock: '#B6A136',
+  ghost: '#735797',
+  dragon: '#6F35FC',
+  dark: '#705746',
+  steel: '#B7B7CE',
+  fairy: '#D685AD',
 };
 
-export const PokemonCard: React.FC<Props> = ({ pokemon }) => {
+export const PokemonCard: React.FC<Props> = ({ pokemon, setPokeInfo }) => {
   const typeElements = pokemon.types.map((poke: Type) => (
     <div
       key={poke.type.name}
@@ -41,7 +41,7 @@ export const PokemonCard: React.FC<Props> = ({ pokemon }) => {
 
 
   return (
-    <div className="pokemon-card mb-2">
+    <div className="pokemon-card" onClick={() => setPokeInfo(pokemon)}>
       <img
         src={pokemon.sprites.front_default}
         alt={pokemon.name}

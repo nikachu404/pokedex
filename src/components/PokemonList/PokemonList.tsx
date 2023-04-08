@@ -5,14 +5,18 @@ import { Pokemon } from '../../types/Pokemon';
 
 interface Props {
   pokemons: Pokemon[];
+  setPokeInfo: (pokemon: Pokemon) => void;
 }
 
-export const PokemonList: React.FC<Props> = ({ pokemons }) => {
+export const PokemonList: React.FC<Props> = ({ pokemons, setPokeInfo }) => {
   return (
     <div>
       <div className="pokemons-list">
         {pokemons && pokemons.map((pokemon) => (
-          <PokemonCard pokemon={pokemon} key={pokemon.id} />
+          <PokemonCard
+            pokemon={pokemon}
+            setPokeInfo={setPokeInfo}
+            key={pokemon.id} />
         ))}
       </div>
     </div>

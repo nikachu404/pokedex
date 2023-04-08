@@ -9,6 +9,7 @@ import { PokemonInfo } from './components/PokemonInfo/PokemonInfo';
 
 export const App: React.FC = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const [pokeInfo, setPokeInfo] = useState<Pokemon | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/?limit=12');
   const [hasMore, setHasMore] = useState(true);
@@ -55,7 +56,7 @@ export const App: React.FC = () => {
   return (
     <div className="App">
       <div className="list-wrapper">
-        <PokemonList pokemons={pokemons} />
+        <PokemonList pokemons={pokemons} setPokeInfo={setPokeInfo}/>
         {hasMore && (
           <button
             className="load-more__button"
@@ -66,7 +67,7 @@ export const App: React.FC = () => {
           </button>
         )}
       </div>
-      <PokemonInfo/>
+      <PokemonInfo pokeInfo={pokeInfo} />
     </div>
   );
 };
