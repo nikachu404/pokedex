@@ -1,6 +1,7 @@
 .App {
   background-color: #f6f8fc;
   display: flex;
+  justify-content: center;
   flex-direction: row;
   padding: 5vh 14vw;
 }

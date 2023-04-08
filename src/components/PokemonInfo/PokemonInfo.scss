@@ -60,3 +60,28 @@ td:first-child {
 tr:first-child td {
   border-top: none;
 }
+
+.slide-in {
+  animation: slideIn ease-in-out 0.35s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideIn {
+  from {
+    right: -400px;
+  }
+
+  to {
+    right: calc(10vw - 20px);
+  }
+}
+
+.slide-out {
+  animation: slideOut ease-in-out 0.35s;
+  animation-fill-mode: forwards; 
+}
+
+@keyframes slideOut {
+  0% {right: calc(10vw - 20px)}
+  100% {right: -400px}
+}

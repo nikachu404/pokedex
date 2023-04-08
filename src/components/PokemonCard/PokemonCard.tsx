@@ -39,7 +39,6 @@ export const PokemonCard: React.FC<Props> = ({ pokemon, setPokeInfo }) => {
     </div>
   ));
 
-
   return (
     <div className="pokemon-card" onClick={() => setPokeInfo(pokemon)}>
       <img
