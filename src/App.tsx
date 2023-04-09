@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './App.css';
+import './App.scss';
 import { PokemonList } from './components/PokemonList/PokemonList';
 import axios from 'axios';
 import { Pokemon } from './types/Pokemon';

@@ -37,6 +37,8 @@ export const PokemonInfo: React.FC<Props> = ({ pokeInfo }) => {
   const specialAttack = pokemon && pokemon.stats.find(stat => stat.stat.name === 'special-attack');
   const specialDefense = pokemon && pokemon.stats.find(stat => stat.stat.name === 'special-defense');
   const speed = pokemon && pokemon.stats.find(stat => stat.stat.name === 'speed');
+  const weight = pokemon && pokemon.height;
+  // const totalMoves = pokemon && pokemon.moves;
 
   const stats = [
     attack,
@@ -63,6 +65,9 @@ export const PokemonInfo: React.FC<Props> = ({ pokeInfo }) => {
 
   return (
     <>
+      <button className="pokemon-info__close-btn" onClick={() => setSlideOut(true)}>
+        X
+      </button>
       {pokemon && (
         <div className={classNames(
           'pokemon-info',
@@ -87,6 +92,10 @@ export const PokemonInfo: React.FC<Props> = ({ pokeInfo }) => {
                   <td>{typeElements}</td>
                 </tr>
                 {statElements}
+                <tr className="pokemon-info__stat">
+                  <td className="pokemon-info__stat--name">Weight</td>
+                  <td>{weight}</td>
+                </tr>
               </tbody>
             </table>
           </div>
