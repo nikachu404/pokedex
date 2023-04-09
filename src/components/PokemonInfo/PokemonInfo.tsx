@@ -90,7 +90,8 @@ export const PokemonInfo: React.FC<Props> = ({ pokeInfo, setPokeInfo }) => {
 
           <div className="pokemon-info__details">
             <h1 className="pokemon-info__name">
-              {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) + ` #${pokemon.id}`}
+              {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+                + ` #${pokemon.id.toString().padStart(3, '0')}`}
             </h1>
 
             <table className="pokemon-info__stats">
