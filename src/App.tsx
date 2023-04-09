@@ -13,7 +13,7 @@ export const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/?limit=12');
   const [hasMore, setHasMore] = useState(true);
-  const dataFetchedRef = useRef(false); // для уникнення side effects(повтор рендеру при першому завантаженні сторінки)
+  const dataFetchedRef = useRef(false); // to avoid side effects (repeat rendering when the page is first loaded)
 
   const [activeTypes, setActiveTypes] = useState<string[]>([]);
 
@@ -76,6 +76,5 @@ export const App: React.FC = () => {
         />
       </div>
     </div>
-
   );
 };

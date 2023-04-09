@@ -4,7 +4,6 @@ import { Pokemon } from '../types/Pokemon';
 
 export const getPokemonList = async (url: string): Promise<PokemonListResponse> => {
   const res = await axios.get(url);
-  console.log(res.data);
   return res.data;
 };
 

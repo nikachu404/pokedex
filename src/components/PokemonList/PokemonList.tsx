@@ -14,21 +14,26 @@ interface Props {
 export const PokemonList: React.FC<Props> = ({ pokemons, setPokeInfo, loadMore, isLoading, hasMore }) => {
   return (
     <div className="pokemons-list">
-      <div className="pokemons-list__list">
-        {pokemons && pokemons.map((pokemon) => (
-          <PokemonCard
-            pokemon={pokemon}
-            setPokeInfo={setPokeInfo}
-            key={pokemon.id} />
-        ))}
-      </div>
+      {pokemons.length
+        ? (
+          <div className="pokemons-list__list">
+            {pokemons && pokemons.map((pokemon) => (
+              <PokemonCard
+                pokemon={pokemon}
+                setPokeInfo={setPokeInfo}
+                key={pokemon.id} />
+            ))}
+          </div>
+        ) : (
+          <h2>There are no pokemon of the selected type among the visible Pokemon, please try to load more</h2>
+        )}
       {hasMore && (
         <button
           className="pokemons-list__button"
           onClick={loadMore}
           disabled={isLoading}
         >
-          Load More
+          {isLoading ? 'Loading..' : 'Load more'}
         </button>
       )}
     </div>
