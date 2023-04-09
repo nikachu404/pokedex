@@ -44,7 +44,6 @@ export const App: React.FC = () => {
     for (const item of res) {
       const result = await axios.get(item.url);
       newPokemons.push(result.data);
-      console.log(result.data);
     }
     setPokemons(prev => [...prev, ...newPokemons]);
   };
@@ -60,18 +59,13 @@ export const App: React.FC = () => {
   return (
     <div className="App">
       <PokemonTypes activeTypes={activeTypes} setActiveTypes={setActiveTypes} />
-      <div className="list-wrapper">
-        <PokemonList pokemons={filteredPokemons} setPokeInfo={setPokeInfo} />
-        {hasMore && (
-          <button
-            className="load-more__button"
-            onClick={loadMore}
-            disabled={isLoading}
-          >
-            Load More
-          </button>
-        )}
-      </div>
+      <PokemonList
+        pokemons={filteredPokemons}
+        setPokeInfo={setPokeInfo}
+        loadMore={loadMore}
+        isLoading={isLoading}
+        hasMore={hasMore}
+      />
       <PokemonInfo pokeInfo={pokeInfo} />
     </div>
   );

@@ -10,11 +10,12 @@
 
   &__photo {
     position: absolute;
+    // width: 100%;
     top: 5%;
     right: 50%;
     transform: translate(50%, 0);
     height: 114px;
-    z-index: 100;
+    // z-index: 100;
     image-rendering: pixelated;
   }
 
@@ -37,6 +38,14 @@
       font-weight: 500;
     }
   }
+
+  @media (max-width: 1100px) {
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    width: 100%;
+  }
 }
 
 table {
@@ -54,7 +63,7 @@ td {
 }
 
 td:first-child {
-   border-left: none;
+  border-left: none;
 }
 
 tr:first-child td {
@@ -78,10 +87,15 @@ tr:first-child td {
 
 .slide-out {
   animation: slideOut ease-in-out 0.35s;
-  animation-fill-mode: forwards; 
+  animation-fill-mode: forwards;
 }
 
 @keyframes slideOut {
-  0% {right: calc(10vw - 20px)}
-  100% {right: -400px}
+  0% {
+    right: calc(10vw - 20px)
+  }
+
+  100% {
+    right: -400px
+  }
 }

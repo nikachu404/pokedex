@@ -27,7 +27,6 @@ type Props = {
 }
 
 export const PokemonTypes: React.FC<Props> = ({ activeTypes, setActiveTypes }) => {
-
   const createIcon = (type: string, image: string, activeTypes: string[], setActiveTypes: (types: string[]) => void) => {
     const isActive = activeTypes.includes(type);
     return (
