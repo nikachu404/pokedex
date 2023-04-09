@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './App.scss';
 import { PokemonList } from './components/PokemonList/PokemonList';
-import axios from 'axios';
 import { Pokemon } from './types/Pokemon';
 import { PokemonListResponseData } from './types/PokemonListResponse';
 import { PokemonInfo } from './components/PokemonInfo/PokemonInfo';
 import { PokemonTypes } from './components/PokemonTypes/PokemonTypes';
+import { getPokemon, getPokemonList } from './api/getPokemons';
 
 export const App: React.FC = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -22,30 +22,17 @@ export const App: React.FC = () => {
   const loadMore = async () => {
     if (url) {
       setIsLoading(true);
-      const res = await axios.get(url);
-      setUrl(res.data.next);
-      getPokemon(res.data.results);
+      const res = await getPokemonList(url);
+      setUrl(res.next);
+      const newPokemons = await Promise.all(res.results.map(async (item) => {
+        const result = await getPokemon(item.url);
+        return result;
+      }));
+      setPokemons(prev => [...prev, ...newPokemons]);
       setIsLoading(false);
     } else {
       setHasMore(false);
     }
-  };
-
-  const getPokemonList = async () => {
-    setIsLoading(true);
-    const res = await axios.get(url);
-    setUrl(res.data.next);
-    getPokemon(res.data.results);
-    setIsLoading(false);
-  };
-
-  const getPokemon = async (res: PokemonListResponseData[]) => {
-    const newPokemons: Pokemon[] = [];
-    for (const item of res) {
-      const result = await axios.get(item.url);
-      newPokemons.push(result.data);
-    }
-    setPokemons(prev => [...prev, ...newPokemons]);
   };
 
   useEffect(() => {
@@ -53,12 +40,26 @@ export const App: React.FC = () => {
       return;
     }
     dataFetchedRef.current = true;
-    getPokemonList();
+    const fetchData = async () => {
+      setIsLoading(true);
+      const res = await getPokemonList(url);
+      setUrl(res.next);
+      const newPokemons = await Promise.all(res.results.map(async (item: PokemonListResponseData) => {
+        const result = await getPokemon(item.url);
+        return result;
+      }));
+      setPokemons(newPokemons);
+      setIsLoading(false);
+    };
+    fetchData();
   }, []);
+
 
   return (
     <div className="App">
-      <h1 className="App__title">Pokedex</h1>
+      <div className="App__title-container">
+        <h1 className="App__title">Pokedex</h1>
+      </div>
 
       <div className="App__container">
         <PokemonTypes activeTypes={activeTypes} setActiveTypes={setActiveTypes} />
@@ -69,7 +70,10 @@ export const App: React.FC = () => {
           isLoading={isLoading}
           hasMore={hasMore}
         />
-        <PokemonInfo pokeInfo={pokeInfo} />
+        <PokemonInfo
+          pokeInfo={pokeInfo}
+          setPokeInfo={setPokeInfo}
+        />
       </div>
     </div>
 

@@ -6,9 +6,10 @@ import closeButton from '../../assets/images/close-icon.png';
 
 interface Props {
   pokeInfo: Pokemon | null;
+  setPokeInfo: (pokeInfo: Pokemon | null) => void;
 }
 
-export const PokemonInfo: React.FC<Props> = ({ pokeInfo }) => {
+export const PokemonInfo: React.FC<Props> = ({ pokeInfo, setPokeInfo }) => {
   const [slideOut, setSlideOut] = useState(false);
   const [pokemon, setPokemon] = useState<Pokemon | null>(pokeInfo);
 
@@ -39,7 +40,7 @@ export const PokemonInfo: React.FC<Props> = ({ pokeInfo }) => {
   const specialDefense = pokemon && pokemon.stats.find(stat => stat.stat.name === 'special-defense');
   const speed = pokemon && pokemon.stats.find(stat => stat.stat.name === 'speed');
   const weight = pokemon && pokemon.height;
-  // const totalMoves = pokemon && pokemon.moves;
+  const totalMoves = pokemon && pokemon.moves.length;
 
   const stats = [
     attack,
@@ -66,9 +67,15 @@ export const PokemonInfo: React.FC<Props> = ({ pokeInfo }) => {
 
   return (
     <>
-      <button className="pokemon-info__close-btn" onClick={() => setSlideOut(true)}>
-        <img src={closeButton} alt="close button" />
-      </button>
+      {pokeInfo && (
+        <button className="pokemon-info__close-btn" onClick={() => {
+          setSlideOut(true);
+          setPokeInfo(null);
+        }}
+        >
+          <img src={closeButton} alt="close button" />
+        </button>
+      )}
       {pokemon && (
         <div className={classNames(
           'pokemon-info',
@@ -96,6 +103,10 @@ export const PokemonInfo: React.FC<Props> = ({ pokeInfo }) => {
                 <tr className="pokemon-info__stat">
                   <td className="pokemon-info__stat--name">Weight</td>
                   <td>{weight}</td>
+                </tr>
+                <tr className="pokemon-info__stat">
+                  <td className="pokemon-info__stat--name">Total moves</td>
+                  <td>{totalMoves}</td>
                 </tr>
               </tbody>
             </table>

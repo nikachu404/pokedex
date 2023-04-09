@@ -1,13 +1,23 @@
 .App {
   display: flex;
   flex-direction: column;
-  text-align: center;
-
   background-color: #f6f8fc;
 
-  &__title {
-    margin-top: 20px;
+  &__title-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin-bottom: 20px;
+
+    background-color: #e4000f;
+  }
+
+  &__title {
+    padding: 10px 20px;
+    border: 5px solid white;
+    border-radius: 20px;
+    color: white;
   }
 
   &__container {
@@ -15,9 +25,9 @@
     flex-direction: row;
     min-height: 100vh;
     padding: 0 10vw 5vh;
-  
+
     @media (max-width: 1100px) {
-      padding: 0 20vw;
+      padding: 0 20vw 5vh;
     }
   }
 }

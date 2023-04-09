@@ -1,10 +1,8 @@
-import { Pokemon } from './Pokemon';
-
 export interface PokemonListResponse {
   count: number;
-  next: string | null;
+  next: string;
   previous: string | null;
-  results: Pokemon[];
+  results: PokemonListResponseData[];
 }
 
 export interface PokemonListResponseData {
