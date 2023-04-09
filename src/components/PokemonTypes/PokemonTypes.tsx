@@ -41,7 +41,7 @@ export const PokemonTypes: React.FC<Props> = ({ activeTypes, setActiveTypes }) =
         className={classNames(
           `pokemon-types__icon pokemon-types__icon--${type}`,
           type,
-          { 'active': isActive }
+          { 'pokemon-types__icon--active': isActive }
         )}
         onClick={() => {
           if (isActive) {
