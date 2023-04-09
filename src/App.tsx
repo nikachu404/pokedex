@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import { PokemonList } from './components/PokemonList/PokemonList';
@@ -6,6 +5,7 @@ import axios from 'axios';
 import { Pokemon } from './types/Pokemon';
 import { PokemonListResponseData } from './types/PokemonListResponse';
 import { PokemonInfo } from './components/PokemonInfo/PokemonInfo';
+import { PokemonTypes } from './components/PokemonTypes/PokemonTypes';
 
 export const App: React.FC = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -14,6 +14,10 @@ export const App: React.FC = () => {
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/?limit=12');
   const [hasMore, setHasMore] = useState(true);
   const dataFetchedRef = useRef(false); // для уникнення side effects(повтор рендеру при першому завантаженні сторінки)
+
+  const [activeTypes, setActiveTypes] = useState<string[]>([]);
+
+  const filteredPokemons = activeTypes.length ? pokemons.filter(pokemon => pokemon.types.some(type => activeTypes.includes(type.type.name))) : pokemons;
 
   const loadMore = async () => {
     if (url) {
@@ -55,8 +59,9 @@ export const App: React.FC = () => {
 
   return (
     <div className="App">
+      <PokemonTypes activeTypes={activeTypes} setActiveTypes={setActiveTypes} />
       <div className="list-wrapper">
-        <PokemonList pokemons={pokemons} setPokeInfo={setPokeInfo}/>
+        <PokemonList pokemons={filteredPokemons} setPokeInfo={setPokeInfo} />
         {hasMore && (
           <button
             className="load-more__button"
