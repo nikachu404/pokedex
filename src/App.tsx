@@ -58,15 +58,20 @@ export const App: React.FC = () => {
 
   return (
     <div className="App">
-      <PokemonTypes activeTypes={activeTypes} setActiveTypes={setActiveTypes} />
-      <PokemonList
-        pokemons={filteredPokemons}
-        setPokeInfo={setPokeInfo}
-        loadMore={loadMore}
-        isLoading={isLoading}
-        hasMore={hasMore}
-      />
-      <PokemonInfo pokeInfo={pokeInfo} />
+      <h1 className="App__title">Pokedex</h1>
+
+      <div className="App__container">
+        <PokemonTypes activeTypes={activeTypes} setActiveTypes={setActiveTypes} />
+        <PokemonList
+          pokemons={filteredPokemons}
+          setPokeInfo={setPokeInfo}
+          loadMore={loadMore}
+          isLoading={isLoading}
+          hasMore={hasMore}
+        />
+        <PokemonInfo pokeInfo={pokeInfo} />
+      </div>
     </div>
+
   );
 };

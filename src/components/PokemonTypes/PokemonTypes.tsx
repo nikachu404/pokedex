@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './PokemonTypes.scss';
 import classNames from 'classnames';
 
@@ -27,8 +27,15 @@ type Props = {
 }
 
 export const PokemonTypes: React.FC<Props> = ({ activeTypes, setActiveTypes }) => {
+  const [isColumnVisible, setIsColumnVisible] = useState(true);
+
+  const toggleColumn = () => {
+    setIsColumnVisible((prevState) => !prevState);
+  };
+
   const createIcon = (type: string, image: string, activeTypes: string[], setActiveTypes: (types: string[]) => void) => {
     const isActive = activeTypes.includes(type);
+
     return (
       <div
         className={classNames(
@@ -48,32 +55,43 @@ export const PokemonTypes: React.FC<Props> = ({ activeTypes, setActiveTypes }) =
       </div>
     );
   };
-  
-  return (
-    <div className="pokemon-types">
-      <div className="pokemon-types__column">
-        {createIcon('bug', bug, activeTypes, setActiveTypes)}
-        {createIcon('dark', dark, activeTypes, setActiveTypes)}
-        {createIcon('dragon', dragon, activeTypes, setActiveTypes)}
-        {createIcon('electric', electric, activeTypes, setActiveTypes)}
-        {createIcon('fairy', fairy, activeTypes, setActiveTypes)}
-        {createIcon('fighting', fighting, activeTypes, setActiveTypes)}
-        {createIcon('fire', fire, activeTypes, setActiveTypes)}
-        {createIcon('flying', flying, activeTypes, setActiveTypes)}
-        {createIcon('ghost', ghost, activeTypes, setActiveTypes)}
-      </div>
 
-      <div className="pokemon-types__column">
-        {createIcon('grass', grass, activeTypes, setActiveTypes)}
-        {createIcon('ground', ground, activeTypes, setActiveTypes)}
-        {createIcon('ice', ice, activeTypes, setActiveTypes)}
-        {createIcon('normal', normal, activeTypes, setActiveTypes)}
-        {createIcon('poison', poison, activeTypes, setActiveTypes)}
-        {createIcon('psychic', psychic, activeTypes, setActiveTypes)}
-        {createIcon('rock', rock, activeTypes, setActiveTypes)}
-        {createIcon('steel', steel, activeTypes, setActiveTypes)}
-        {createIcon('water', water, activeTypes, setActiveTypes)}
+  return (
+    <>
+      <div className="pokemon-types">
+        <button
+          className="pokemon-types__burger"
+          onClick={toggleColumn}
+        >
+          Types
+        </button>
+
+        <div className={classNames('pokemon-types__row', { visible: !isColumnVisible })}>
+          <div className="pokemon-types__column">
+            {createIcon('bug', bug, activeTypes, setActiveTypes)}
+            {createIcon('dark', dark, activeTypes, setActiveTypes)}
+            {createIcon('dragon', dragon, activeTypes, setActiveTypes)}
+            {createIcon('electric', electric, activeTypes, setActiveTypes)}
+            {createIcon('fairy', fairy, activeTypes, setActiveTypes)}
+            {createIcon('fighting', fighting, activeTypes, setActiveTypes)}
+            {createIcon('fire', fire, activeTypes, setActiveTypes)}
+            {createIcon('flying', flying, activeTypes, setActiveTypes)}
+            {createIcon('ghost', ghost, activeTypes, setActiveTypes)}
+          </div>
+
+          <div className="pokemon-types__column">
+            {createIcon('grass', grass, activeTypes, setActiveTypes)}
+            {createIcon('ground', ground, activeTypes, setActiveTypes)}
+            {createIcon('ice', ice, activeTypes, setActiveTypes)}
+            {createIcon('normal', normal, activeTypes, setActiveTypes)}
+            {createIcon('poison', poison, activeTypes, setActiveTypes)}
+            {createIcon('psychic', psychic, activeTypes, setActiveTypes)}
+            {createIcon('rock', rock, activeTypes, setActiveTypes)}
+            {createIcon('steel', steel, activeTypes, setActiveTypes)}
+            {createIcon('water', water, activeTypes, setActiveTypes)}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };

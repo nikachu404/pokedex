@@ -1,10 +1,36 @@
-.pokemon-types  {
+.pokemon-types {
   position: fixed;
-  top: 2vh;
   left: 2vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 5px;
+
+  &__burger {
+    display: none;
+    padding: 5px;
+    height: 40px;
+    background-color: #FF5350;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: #ff535088 5px 5px 15px;
+    color: white;
+    font-size: 18px;
+
+    @media (max-width: 800px) {
+      display: block;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+
+    @media (max-width: 800px) {
+      display: none;
+    }
+  }
 
   &__column {
     display: flex;
@@ -20,7 +46,7 @@
   transition: 200ms all;
 }
 
-.icon:hover{
+.icon:hover {
   filter: saturate(200%);
   transform: scale(0.8);
   cursor: pointer;
@@ -105,6 +131,10 @@
 }
 
 .active {
-  filter: saturate(500%);
+  filter: saturate(400%);
   transform: scale(0.8);
+}
+
+.visible {
+  display: flex;
 }

@@ -41,16 +41,21 @@
     position: fixed;
     top: 10px;
     right: 10px;
+
+    display: none;
+    height: 40px;
+    width: 40px;
+
     background-color: #F6F8FC;
-    cursor: pointer;
     z-index: 100;
     padding: 10px;
     border-radius: 10px;
-    display: none;
-    height: 22px;
+    cursor: pointer;
 
     @media (max-width: 1100px) {
-      display: unset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 

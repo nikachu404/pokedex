@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './PokemonInfo.scss';
 import { Pokemon, Type } from '../../types/Pokemon';
 import classNames from 'classnames';
+import closeButton from '../../assets/images/close-icon.png';
 
 interface Props {
   pokeInfo: Pokemon | null;
@@ -66,7 +67,7 @@ export const PokemonInfo: React.FC<Props> = ({ pokeInfo }) => {
   return (
     <>
       <button className="pokemon-info__close-btn" onClick={() => setSlideOut(true)}>
-        X
+        <img src={closeButton} alt="close button" />
       </button>
       {pokemon && (
         <div className={classNames(
