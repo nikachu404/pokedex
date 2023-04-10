@@ -25,7 +25,7 @@ export const PokemonList: React.FC<Props> = ({ pokemons, setPokeInfo, loadMore, 
             ))}
           </div>
         ) : (
-          <h2>There are no pokemon of the selected type among the visible Pokemon, please try to load more</h2>
+          <h2>There are no pokemon of the selected type among the visible pokemons, please try to load more</h2>
         )}
       {hasMore && (
         <button
