@@ -40,8 +40,6 @@ export const PokemonTypes: React.FC<Props> = ({ activeTypes, setActiveTypes }) =
   const createIcon = (type: string, image: string, activeTypes: string[], setActiveTypes: (types: string[]) => void) => {
     const isActive = activeTypes.includes(type);
 
-    console.log(process.env.REACT_APP_PUBLIC_URL, process.env.REACT_APP_API_URL);
-
     return (
       <div
         className={classNames(
