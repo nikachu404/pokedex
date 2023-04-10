@@ -18,25 +18,26 @@ Responsive website with pokemons, the list of which can be increased, there is a
  - <img width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />HTML
  - <img width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" />CSS
  - <img width="40px" src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" />SCSS
+  - <img width="40px" src="https://github.com/devicons/devicon/blob/master/icons/eslint/eslint-original.svg" />Eslint
  - Axios
 
 <h2 align="center">🔍Functional🔍</h2>
 
  - Display information about pokemon
  
- ![](https://github.com/nikachu404/teamvoy-test-task/blob/main/src/assets/gif/InformationDisplay.gif)
+ ![](https://media.giphy.com/media/375Ia3ccs6A5iukm2e/giphy.gif)
   
   - Load more pokemons
  
- ![](https://github.com/nikachu404/teamvoy-test-task/blob/main/src/assets/gif/LoadMore.gif)
+ ![](https://media.giphy.com/media/vQIWbQ1SoofhEJSVtN/giphy.gif)
    
  - Filtering by pokemon type
  
- ![](https://github.com/nikachu404/teamvoy-test-task/blob/main/src/assets/gif/Filtration.gif)
+ ![](https://media.giphy.com/media/O6gcwLBoeHM0NqDVj3/giphy.gif)
 
  - Responsiveness
  
- ![](https://github.com/nikachu404/teamvoy-test-task/blob/main/src/assets/gif/Responsiveness.gif)
+ ![](https://media.giphy.com/media/oRd0sEZ3CPWHw0iuUx/giphy.gif)
  
 <h2 align="center">📌Instructions how to run application locally:📌</h2>
 
