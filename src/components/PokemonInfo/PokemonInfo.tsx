@@ -16,10 +16,12 @@ export const PokemonInfo: React.FC<Props> = ({ pokeInfo, setPokeInfo }) => {
   useEffect(() => {
     setSlideOut(true);
 
-    setTimeout(() => {
+    const timerId = setTimeout(() => {
       setPokemon(pokeInfo);
       setSlideOut(false);
     }, 350);
+
+    return () => clearTimeout(timerId);
   }, [pokeInfo]);
 
   useEffect(() => {
@@ -27,61 +29,68 @@ export const PokemonInfo: React.FC<Props> = ({ pokeInfo, setPokeInfo }) => {
   }, []);
 
 
-  const typeElements = pokemon && pokemon.types.map((poke: Type, index: number) => (
-    (index === 0
-      ? poke.type.name.charAt(0).toUpperCase() + poke.type.name.slice(1)
-      : poke.type.name.toLowerCase())
-  )).join(', ');
+  const typeElements = pokemon?.types.map(
+    (poke: Type, index: number) => {
+      const typeName = index === 0
+        ? poke.type.name.charAt(0).toUpperCase() + poke.type.name.slice(1)
+        : poke.type.name.toLowerCase();
 
-  const attack = pokemon && pokemon.stats.find(stat => stat.stat.name === 'attack');
-  const defense = pokemon && pokemon.stats.find(stat => stat.stat.name === 'defense');
-  const hp = pokemon && pokemon.stats.find(stat => stat.stat.name === 'hp');
-  const specialAttack = pokemon && pokemon.stats.find(stat => stat.stat.name === 'special-attack');
-  const specialDefense = pokemon && pokemon.stats.find(stat => stat.stat.name === 'special-defense');
-  const speed = pokemon && pokemon.stats.find(stat => stat.stat.name === 'speed');
-  const weight = pokemon && pokemon.height;
-  const totalMoves = pokemon && pokemon.moves.length;
+      return typeName;
+    }
+  ).join(', ');
+
+  const getStatValue = (statName: string) => {
+    const stat = pokemon?.stats.find(stat => stat.stat.name === statName);
+
+    return stat ? stat.base_stat : '';
+  };
 
   const stats = [
-    attack,
-    defense,
-    hp,
-    specialAttack,
-    specialDefense,
-    speed,
+    'attack',
+    'defense',
+    'hp',
+    'special-attack',
+    'special-defense',
+    'speed',
   ];
 
-  const statElements = stats.map((stat) => (
-    stat && stat.stat && (
-      <tr
-        className="pokemon-info__stat"
-        key={stat.stat.name}
-      >
-        <td className="pokemon-info__stat--name">
-          {stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1)}
-        </td>
-        <td>{stat.base_stat}</td>
-      </tr>
-    )
-  ));
+  const statElements = stats.map(statName => {
+    const statValue = getStatValue(statName);
+
+    return statValue
+      ? (
+        <tr key={statName} className="pokemon-info__stat">
+          <td className="pokemon-info__stat--name">
+            {statName.charAt(0).toUpperCase() + statName.slice(1)}
+          </td>
+          <td>{statValue}</td>
+        </tr>
+      ) : null;
+  });
+
+  const handleButtonClick = () => {
+    setSlideOut(true);
+    setPokeInfo(null);
+  };
 
   return (
     <>
       {pokeInfo && (
-        <button className="pokemon-info__close-btn" onClick={() => {
-          setSlideOut(true);
-          setPokeInfo(null);
-        }}
+        <button
+          className="pokemon-info__close-btn"
+          onClick={handleButtonClick}
         >
           <img src={closeButton} alt="close button" />
         </button>
       )}
+
       {pokemon && (
         <div className={classNames(
           'pokemon-info',
-          { 'slide-in': pokemon && !slideOut },
+          { 'slide-in': !slideOut },
           { 'slide-out': slideOut }
-        )}>
+        )}
+        >
           <img
             src={pokemon.sprites.versions?.['generation-v']['black-white'].animated.front_default}
             alt={pokemon.name}
@@ -100,14 +109,17 @@ export const PokemonInfo: React.FC<Props> = ({ pokeInfo, setPokeInfo }) => {
                   <td className="pokemon-info__stat--name">Type</td>
                   <td>{typeElements}</td>
                 </tr>
+
                 {statElements}
+
                 <tr className="pokemon-info__stat">
                   <td className="pokemon-info__stat--name">Weight</td>
-                  <td>{weight}</td>
+                  <td>{pokemon.weight}</td>
                 </tr>
-                <tr className="pokemon-info__stat">
-                  <td className="pokemon-info__stat--name">Total moves</td>
-                  <td>{totalMoves}</td>
+
+                <tr>
+                  <td>Total moves</td>
+                  <td>{pokemon.moves.length}</td>
                 </tr>
               </tbody>
             </table>

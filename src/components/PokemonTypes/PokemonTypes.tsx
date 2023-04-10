@@ -1,25 +1,29 @@
 import React, { useState } from 'react';
-import './PokemonTypes.scss';
+import {PokemonIcon} from '../PokemonIcon/PokemonIcon';
 import classNames from 'classnames';
 
-import bug from '../../assets/icons/bug.svg';
-import dark from '../../assets/icons/dark.svg';
-import dragon from '../../assets/icons/dragon.svg';
-import electric from '../../assets/icons/electric.svg';
-import fairy from '../../assets/icons/fairy.svg';
-import fighting from '../../assets/icons/fighting.svg';
-import fire from '../../assets/icons/fire.svg';
-import flying from '../../assets/icons/flying.svg';
-import ghost from '../../assets/icons/ghost.svg';
-import grass from '../../assets/icons/grass.svg';
-import ground from '../../assets/icons/ground.svg';
-import ice from '../../assets/icons/ice.svg';
-import normal from '../../assets/icons/normal.svg';
-import poison from '../../assets/icons/poison.svg';
-import psychic from '../../assets/icons/psychic.svg';
-import rock from '../../assets/icons/rock.svg';
-import steel from '../../assets/icons/steel.svg';
-import water from '../../assets/icons/water.svg';
+import './PokemonTypes.scss';
+
+const icons = [
+  { type: 'bug', path: 'bug' },
+  { type: 'dark', path: 'dark' },
+  { type: 'dragon', path: 'dragon' },
+  { type: 'electric', path: 'electric' },
+  { type: 'fairy', path: 'fairy' },
+  { type: 'fighting', path: 'fighting' },
+  { type: 'fire', path: 'fire' },
+  { type: 'flying', path: 'flying' },
+  { type: 'ghost', path: 'ghost' },
+  { type: 'grass', path: 'grass' },
+  { type: 'ground', path: 'ground' },
+  { type: 'ice', path: 'ice' },
+  { type: 'normal', path: 'normal' },
+  { type: 'poison', path: 'poison' },
+  { type: 'psychic', path: 'psychic' },
+  { type: 'rock', path: 'rock' },
+  { type: 'steel', path: 'steel' },
+  { type: 'water', path: 'water' },
+];
 
 type Props = {
   activeTypes: string[];
@@ -36,6 +40,8 @@ export const PokemonTypes: React.FC<Props> = ({ activeTypes, setActiveTypes }) =
   const createIcon = (type: string, image: string, activeTypes: string[], setActiveTypes: (types: string[]) => void) => {
     const isActive = activeTypes.includes(type);
 
+    console.log(process.env.REACT_APP_PUBLIC_URL, process.env.REACT_APP_API_URL);
+
     return (
       <div
         className={classNames(
@@ -51,7 +57,7 @@ export const PokemonTypes: React.FC<Props> = ({ activeTypes, setActiveTypes }) =
           }
         }}
       >
-        <img src={image} alt={type} />
+        <PokemonIcon path={image} />
       </div>
     );
   };
@@ -68,27 +74,11 @@ export const PokemonTypes: React.FC<Props> = ({ activeTypes, setActiveTypes }) =
 
         <div className={classNames('pokemon-types__row', { visible: !isColumnVisible })}>
           <div className="pokemon-types__column">
-            {createIcon('bug', bug, activeTypes, setActiveTypes)}
-            {createIcon('dark', dark, activeTypes, setActiveTypes)}
-            {createIcon('dragon', dragon, activeTypes, setActiveTypes)}
-            {createIcon('electric', electric, activeTypes, setActiveTypes)}
-            {createIcon('fairy', fairy, activeTypes, setActiveTypes)}
-            {createIcon('fighting', fighting, activeTypes, setActiveTypes)}
-            {createIcon('fire', fire, activeTypes, setActiveTypes)}
-            {createIcon('flying', flying, activeTypes, setActiveTypes)}
-            {createIcon('ghost', ghost, activeTypes, setActiveTypes)}
+            {icons.slice(0,9).map(icon => createIcon(icon.type, icon.path, activeTypes, setActiveTypes))}
           </div>
 
           <div className="pokemon-types__column">
-            {createIcon('grass', grass, activeTypes, setActiveTypes)}
-            {createIcon('ground', ground, activeTypes, setActiveTypes)}
-            {createIcon('ice', ice, activeTypes, setActiveTypes)}
-            {createIcon('normal', normal, activeTypes, setActiveTypes)}
-            {createIcon('poison', poison, activeTypes, setActiveTypes)}
-            {createIcon('psychic', psychic, activeTypes, setActiveTypes)}
-            {createIcon('rock', rock, activeTypes, setActiveTypes)}
-            {createIcon('steel', steel, activeTypes, setActiveTypes)}
-            {createIcon('water', water, activeTypes, setActiveTypes)}
+            {icons.slice(9).map(icon => createIcon(icon.type, icon.path, activeTypes, setActiveTypes))}
           </div>
         </div>
       </div>
