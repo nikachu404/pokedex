@@ -1,7 +1,8 @@
 import React from 'react';
-import './PokemonCard.scss';
 import { Pokemon, Type } from '../../types/Pokemon';
-import { typeColors } from '../../styles/typeColors';
+import { typeColors } from '../../constansts/typeColors';
+
+import './PokemonCard.scss';
 
 interface Props {
   pokemon: Pokemon;

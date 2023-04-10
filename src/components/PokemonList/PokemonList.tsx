@@ -1,7 +1,8 @@
 import React from 'react';
-import './PokemonList.scss';
 import { PokemonCard } from '../PokemonCard/PokemonCard';
 import { Pokemon } from '../../types/Pokemon';
+
+import './PokemonList.scss';
 
 interface Props {
   pokemons: Pokemon[];
@@ -27,6 +28,7 @@ export const PokemonList: React.FC<Props> = ({ pokemons, setPokeInfo, loadMore, 
         ) : (
           <h2>There are no pokemon of the selected type among the visible pokemons, please try to load more</h2>
         )}
+
       {hasMore && (
         <button
           className="pokemons-list__button"
