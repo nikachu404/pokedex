@@ -1,31 +1,13 @@
 {
   "files": {
-    "main.css": "/teamvoy-test-task/static/css/main.1f8c1ed1.css",
-    "main.js": "/teamvoy-test-task/static/js/main.44a53d3b.js",
-    "static/media/dragon.svg": "/teamvoy-test-task/static/media/dragon.9d32757b191cbbaea8d4d418ff5d4ed3.svg",
-    "static/media/fire.svg": "/teamvoy-test-task/static/media/fire.e0bd7fcab2121e7ac1ffbbe09a3ca5dd.svg",
-    "static/media/psychic.svg": "/teamvoy-test-task/static/media/psychic.67439878eaa68ee726de9944c7ff9757.svg",
-    "static/media/fairy.svg": "/teamvoy-test-task/static/media/fairy.767c2f5699eb5f1120f19c7a76b41a1a.svg",
-    "static/media/bug.svg": "/teamvoy-test-task/static/media/bug.204df919b74456c6dc729be0aa67759b.svg",
+    "main.css": "/teamvoy-test-task/static/css/main.96135323.css",
+    "main.js": "/teamvoy-test-task/static/js/main.c31ae64f.js",
     "index.html": "/teamvoy-test-task/index.html",
-    "static/media/rock.svg": "/teamvoy-test-task/static/media/rock.61a8428da62eeab93746d62969c71989.svg",
-    "static/media/ice.svg": "/teamvoy-test-task/static/media/ice.cd2f90437e3fe39235a9adca860ce2d2.svg",
-    "static/media/ghost.svg": "/teamvoy-test-task/static/media/ghost.ddf268314aed78d0524d47aa90e49187.svg",
-    "static/media/flying.svg": "/teamvoy-test-task/static/media/flying.d17785038a59f3ce2121e423a2ded0f7.svg",
-    "static/media/fighting.svg": "/teamvoy-test-task/static/media/fighting.f20d1bd24f0cde62bb378b672f0178aa.svg",
-    "static/media/poison.svg": "/teamvoy-test-task/static/media/poison.43956925ad0376b77c7e3921caa3dc30.svg",
-    "static/media/steel.svg": "/teamvoy-test-task/static/media/steel.cb91a92a3b5197e2cf61bc66592f42d1.svg",
-    "static/media/ground.svg": "/teamvoy-test-task/static/media/ground.e567f4fc3f3422598757977865de57d8.svg",
-    "static/media/dark.svg": "/teamvoy-test-task/static/media/dark.27fdc7ed2bd3294b9838b1882c20e225.svg",
-    "static/media/water.svg": "/teamvoy-test-task/static/media/water.b6d13329535e4be9e9b4f8da4694faba.svg",
-    "static/media/electric.svg": "/teamvoy-test-task/static/media/electric.bc35c5a3faf04b605c00967b94e93693.svg",
-    "static/media/grass.svg": "/teamvoy-test-task/static/media/grass.e09623e3345d5bf5286f5323dd923c60.svg",
-    "static/media/normal.svg": "/teamvoy-test-task/static/media/normal.2ba66dd583ebf70eb414a0cfd20a48be.svg",
-    "main.1f8c1ed1.css.map": "/teamvoy-test-task/static/css/main.1f8c1ed1.css.map",
-    "main.44a53d3b.js.map": "/teamvoy-test-task/static/js/main.44a53d3b.js.map"
+    "main.96135323.css.map": "/teamvoy-test-task/static/css/main.96135323.css.map",
+    "main.c31ae64f.js.map": "/teamvoy-test-task/static/js/main.c31ae64f.js.map"
   },
   "entrypoints": [
-    "static/css/main.1f8c1ed1.css",
-    "static/js/main.44a53d3b.js"
+    "static/css/main.96135323.css",
+    "static/js/main.c31ae64f.js"
   ]
 }
