@@ -117,8 +117,8 @@ export const PokemonInfo: React.FC<Props> = ({ pokeInfo, setPokeInfo }) => {
                   <td>{pokemon.weight}</td>
                 </tr>
 
-                <tr>
-                  <td>Total moves</td>
+                <tr className="pokemon-info__stat">
+                  <td className="pokemon-info__stat--name">Total moves</td>
                   <td>{pokemon.moves.length}</td>
                 </tr>
               </tbody>
