@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/teamvoy-test-task/static/css/main.1f8c1ed1.css",
-    "main.js": "/teamvoy-test-task/static/js/main.aea1247c.js",
+    "main.js": "/teamvoy-test-task/static/js/main.44a53d3b.js",
     "static/media/dragon.svg": "/teamvoy-test-task/static/media/dragon.9d32757b191cbbaea8d4d418ff5d4ed3.svg",
     "static/media/fire.svg": "/teamvoy-test-task/static/media/fire.e0bd7fcab2121e7ac1ffbbe09a3ca5dd.svg",
     "static/media/psychic.svg": "/teamvoy-test-task/static/media/psychic.67439878eaa68ee726de9944c7ff9757.svg",
@@ -22,10 +22,10 @@
     "static/media/grass.svg": "/teamvoy-test-task/static/media/grass.e09623e3345d5bf5286f5323dd923c60.svg",
     "static/media/normal.svg": "/teamvoy-test-task/static/media/normal.2ba66dd583ebf70eb414a0cfd20a48be.svg",
     "main.1f8c1ed1.css.map": "/teamvoy-test-task/static/css/main.1f8c1ed1.css.map",
-    "main.aea1247c.js.map": "/teamvoy-test-task/static/js/main.aea1247c.js.map"
+    "main.44a53d3b.js.map": "/teamvoy-test-task/static/js/main.44a53d3b.js.map"
   },
   "entrypoints": [
     "static/css/main.1f8c1ed1.css",
-    "static/js/main.aea1247c.js"
+    "static/js/main.44a53d3b.js"
   ]
 }
