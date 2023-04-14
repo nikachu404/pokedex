@@ -5,7 +5,6 @@ Pokedex
 </h1>
 
  - [✨DEMO✨](https://nikachu404.github.io/teamvoy-test-task/)
-- [✏️TASK✏️](https://drive.google.com/file/d/1enBRU1Mbs48kQ0xYGxb8Z71zH1b-l7ne/view?usp=sharing)
 
  <h2 align="center">📋About📋</h2>
 Responsive website with pokemons, the list of which can be increased, there is also the ability to display information about pokemons and perform pokemon filtering.
