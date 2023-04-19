@@ -4,7 +4,7 @@ Pokedex
 <a href="https://emoji.gg/emoji/2194-pokeballspin"><img src="https://cdn3.emoji.gg/emojis/2194-pokeballspin.gif" width="64px" height="64px" alt="PokeballSpin"></a>
 </h1>
 
- - [✨DEMO✨](https://nikachu404.github.io/teamvoy-test-task/)
+ - [✨DEMO✨](https://nikachu404.github.io/pokedex/)
 
  <h2 align="center">📋About📋</h2>
 Responsive website with pokemons, the list of which can be increased, there is also the ability to display information about pokemons and perform pokemon filtering.
